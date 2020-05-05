@@ -1,0 +1,78 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container vehicle">
+    <div class="row home">
+        {% for bike in bikes %}
+        <div class="col-md-4 col-xs-12 col-sm-6">
+            <br>
+            <h4>{{ bike.vehicleNumber }}</h4>
+            <table style="margin-right: 0px;">
+                <tr>
+                    <th>
+                        <p>Manufactured by</p>
+                    </th>
+                    <td>
+                        <p>{{ bike.make }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>Model</p>
+                    </th>
+                    <td>
+                        <p>{{ bike.model }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>Year</p>
+                    </th>
+                    <td>
+                        <p>{{ bike.year }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>Owners</p>
+                    </th>
+                    <td>
+                        <p>{{ bike.owners }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>Colour</p>
+                    </th>
+                    <td>
+                        <p>{{ bike.colour }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>Kilometers</p>
+                    </th>
+                    <td>
+                        <p>{{ bike.kms }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <p>Price</p>
+                    </th>
+                    <td>
+                        <p>{{ bike.salePrice }}</p>
+                    </td>
+                </tr>
+            </table>
+
+
+            {% if current_user.is_authenticated %}
+            <span class='btn btn-primary'><a href="{{ url_for('main.view',id=bike.id)}}" style="color: floralwhite"> View </a></span>
+            <span class='btn btn-primary'><a  href="{{ url_for('main.edit',id=bike.id) }}" style="color: floralwhite"> edit </a></span>
+            <span class="btn btn-warning"><a href="{{ url_for('main.delete_vehicle',b_id=bike.id)}}" style="color: floralwhite"> Delete </a></span> {% else %}
+            <span class='btn btn-primary'><a href="{{ url_for('main.view',id=bike.id)}}" style="color: floralwhite"> View </a></span> {% endif %}
+            <br><br>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

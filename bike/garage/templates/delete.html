@@ -1,0 +1,48 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container vehicle">
+    <h4 class=> Are you sure to delete the below record ? </h4>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <br>
+            <div style="text-align: left; justify-content:stretch">
+                <h2>{{ bike.vehicleNumber }}</h2>
+                <br>
+                <h4>Manufactured by: {{ bike.make }}</h4>
+                <h4>Model: {{ bike.model }}</h4>
+
+                <h4>Year: {{ bike.year }}</h4>
+                <h4>Fuel: {{ bike.fuel }}</h4>
+                <h4>Colour: {{ bike.colour }}</h4>
+                <h4>Kms run: {{ bike.kms }}</h4>
+
+                <h4>Insurance end date: {{ bike.insuranceEndDate }}</h4>
+                <h4>Price: {{ bike.salePrice }}</h4>
+                {% if current_user.is_authenticated %}
+                <h4>purchaseShop: {{ bike.purchaseShop }}</h4>
+                {% if bike.isSold=='True' %}
+                <h4>Is the vehicle sold?: {{ 'Yes' }}</h4>
+                {% if bike.isDealer=='True' %}
+                <h4>Vehicle sold to: {{ 'Dealer' }}</h4>
+                {%else%}
+                <h4>Vehicle sold to: {{ 'Customer' }}</h4>
+                {% endif %}
+                <h4>Sold to: {{ bike.buyerName }}</h4>
+                <h4>Buyer's Address: {{ bike.address }}</h4>
+                <h4>Contact Number: {{ bike.phoneNo }}</h4>
+                <h4>Buyer's ID Number: {{ bike.idNumber }}</h4>
+                {% else %}
+                <h4>Is the vehicle sold?: {{ 'No' }}</h4>
+                {% endif %} {% endif %}
+                <br>
+                <form action="{{ url_for('main.delete_vehicle',b_id=bike.id) }}" method="POST">
+                    <button class='btn btn-primary' type="submit"> Delete </button>
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

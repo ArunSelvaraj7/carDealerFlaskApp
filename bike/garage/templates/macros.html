@@ -1,0 +1,26 @@
+{% macro tables(obj) %}
+<table border="3px solid">
+    <tr>
+        <th>ID</th>
+        <th>VEHICLE NUMBER</th>
+        <th>MAKE</th>
+        <th>MODEL</th>
+        <th>YEAR</th>
+        <th>INSURANCE START DATE</th>
+        <th>INSURANCE END DATE</th>
+        <th>PRICE</th>
+    </tr>
+    {% for object in obj %}
+    <tr>
+        <td>{{object.id}}</td>
+        <td>{{object.vehicleNumber}}</td>
+        <td>{{object.make}}</td>
+        <td>{{object.model}}</td>
+        <td>{{object.year}}</td>
+        <td>{{object.insuranceStDate}}</td>
+        <td>{{object.insuranceEndDate}}</td>
+        <td>{{object.salePrice}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endmacro %}

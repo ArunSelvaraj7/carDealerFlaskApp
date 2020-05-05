@@ -1,0 +1,100 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{# head #} {% block head %}
+
+<head>
+    <title> Sri Ganesh Cars </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+{% endblock head %} {# body #} {% block body %}
+
+<body>
+    {# navigation bar #} {% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid" style="height: 100%;width:100%">
+
+            <div class="navbar-header" style="height: 100%;">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" id="but">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                      </button>
+                <img class="head_img" style="float:left" height="100vh" src="{{url_for('static',filename='images/ganesh.jpg')}}">
+                <a class="nav navbar-text" href="{{ url_for('main.display_route') }}">
+                    <h2 class="title"> Sri Ganesh Cars </h2>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right menu">
+                    <li><a href="{{ url_for('main.display_route') }}"> Home </a></li>
+                    <!-- <li><a href="{{ url_for('auth.register') }}"> Register </a></li> -->
+
+                    {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('main.add_vehicle') }}">Add Stock </a></li>
+                    <li>
+                        <a href="{{ url_for('main.search',flag='edit1') }}">
+                            Edit                            </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('main.search',flag='delete') }}">
+                         Delete   </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('main.search',flag='search') }}">
+                                Search
+                            </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('main.searchCustomer') }}">
+                         Search Customer   </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('auth.do_the_logout') }}"> SignOut </a>
+                    </li> {% else %}
+                    <li><a href="{{ url_for('auth.do_the_login') }}"> SignIn </a> {% endif %}
+                    </li>
+
+
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock navbar %} {# flash messaging #} {% for message in get_flashed_messages() %}
+    <div class="container alert alert-info">
+        <button type="button" class="close" data-dismiss="alert"></button> {{ message }}
+    </div>
+    {% endfor %} {# empty block for custom content #} {% block content %} {% endblock content %} {# footer #} {% block footer %}
+    <footer>
+        <div class="container ftr">
+            <hr>
+            <div class="text-center">
+                <p>Contact Us @ </p>
+                <span class=" glyphicon glyphicon-earphone " style="padding-right: 2%;"><p style="float: right;">9171806678</p></span>
+                <span class="glyphicon glyphicon-earphone " style="padding-right: 2%;"><p style="float: right; ">9444121274</p></span>
+                <span class="glyphicon glyphicon-earphone "><p style="float: right; ">7200966678</p></span>
+            </div>
+            <p class="text-center small ">The Perfect place to buy/sell your car </p>
+
+        </div>
+    </footer>
+    {% endblock footer %}
+
+
+</body>
+{% endblock body %}
+
+</html>

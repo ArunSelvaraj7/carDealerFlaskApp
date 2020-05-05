@@ -1,0 +1,190 @@
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    
+    body {
+        overflow-x: visible;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+        font-family: Sansita, serif
+    }
+    
+    ul {
+        position: relative;
+        top: 25px;
+        right: 7%;
+    }
+    /* #title {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 5%;
+    } */
+    
+    .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+        height: auto;
+    }
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    
+    .row.content {
+        height: 450px
+    }
+    /* Set gray background color and 100% height */
+    
+    .sidenav {
+        padding-top: 20px;
+        background-color: #f1f1f1;
+        height: 100%;
+    }
+    /* Set black background color, white text and some padding */
+    
+    footer {
+        position: relative;
+        width: 100%;
+        left: 0;
+        bottom: 0%;
+        height: 40px
+    }
+    
+    .ftr {
+        padding: 20px
+    }
+    
+    .wrapper {
+        position: relative;
+        min-height: 120%;
+    }
+    
+    .form {
+        height: 100%;
+        width: 120%;
+        padding-left: 10px;
+        position: relative;
+    }
+    
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    
+    th {
+        width: 40%;
+    }
+    
+    .form-group {
+        width: 50%
+    }
+    
+    .login-msg {
+        position: relative;
+    }
+    
+    .vehicle {
+        padding: 1%;
+        position: relative;
+        width: 80%
+    }
+    
+    .tab {
+        width: 100%;
+    }
+    
+    .navbar-collapse.in {
+        overflow-y: hidden!important
+    }
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    
+    @media screen and (max-width: 1023px) {
+        .menu {
+            top: 0px!important;
+        }
+    }
+    
+    @media screen and (max-width: 767px) {
+        .sidenav {
+            height: auto;
+            padding: 15px;
+        }
+        .row.content {
+            height: auto;
+        }
+        .title {
+            margin-top: 5%;
+            margin-bottom: 5%;
+            text-align: center;
+            font-size: xx-large;
+        }
+        .head_img {
+            margin-left: 5%;
+        }
+        #but {
+            margin-top: 6%
+        }
+        .navbar-right {
+            margin-left: 5%;
+            margin-right: auto;
+            width: 20em;
+            margin-bottom: 10%;
+        }
+        .home {
+            margin-left: auto;
+            margin-right: auto;
+            width: 20em;
+        }
+    }
+    
+    @media screen and (max-width: 769px) {
+        th {
+            width: 45%;
+        }
+    }
+    
+    @media screen and (max-width: 427px) {
+        #but {
+            margin-top: 8%;
+        }
+        .title {
+            margin-top: 7.5%;
+            text-align: center;
+            font-size: xx-large;
+        }
+        .form {
+            height: 50%;
+            width: 145%;
+        }
+        #myCarousel {
+            padding-left: 0%;
+            padding-right: 0%;
+        }
+        th {
+            width: 45%;
+        }
+    }
+    
+    @media screen and (max-width: 324px) {
+        #but {
+            margin-top: 12%;
+        }
+    }
+    
+    @media (min-width:1022px) {
+        .navbar-toggle {
+            display: none!important
+        }
+        .vehicle {
+            width: 90%;
+        }
+    }

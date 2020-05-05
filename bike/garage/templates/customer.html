@@ -1,0 +1,115 @@
+{% extends 'layout.html' %} {% block title %} SignIn {% endblock %} {% block content %}
+<div class="container login-msg">
+    {% if flag=='form' %}
+    <h4> Enter the details Here </h4>
+    <hr>
+    <div> {{ wtf.quick_form(form) }} </div>
+    {% else %} {% if form %}
+    <h3> {{form[0].buyerName}}</h3>
+    <p> {{form[0].address}} </p>
+    <h4> {{form[0].phoneNo}}</h4>
+    <h4> Vehicles sold to {{form[0].buyerName}}</h4>
+    <hr> {% endif %}
+    <div class="container vehicle">
+        <div class="row">
+            {% for c in form%}
+            <div class="col-md-4">
+                <h3>{{ c.vehicleNumber }}</h3>
+                <table>
+                    <tr>
+                        <th>
+                            <p>Manufactured by</p>
+                        </th>
+                        <td> {{ c.make }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Model</p>
+                        </th>
+                        <td>
+                            <p> {{ c.model }}</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <p>Year</p>
+                        </th>
+                        <td>
+                            <p> {{ c.year }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Owners</p>
+                        </th>
+                        <td>
+                            <p> {{ c.owners }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Colour</p>
+                        </th>
+                        <td>
+                            <p> {{ c.colour }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>fuel</p>
+                        </th>
+                        <td>
+                            <p> {{ c.fuel }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>finance</p>
+                        </th>
+                        <td>
+                            <p> {{ c.finance }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Kms run</p>
+                        </th>
+                        <td>
+                            <p> {{ c.kms }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Insurance up-to</p>
+                        </th>
+                        <td>
+                            <p> {{ c.insuranceEndDate }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Sold Price</p>
+                        </th>
+                        <td>
+                            <p> {{ c.soldPrice }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Buyer's ID Number</p>
+                        </th>
+                        <td>
+                            <p> {{ c.idNumber }}</p>
+                        </td>
+                    </tr>
+                </table>
+            </div> {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+</div>
+
+{% endblock content %}

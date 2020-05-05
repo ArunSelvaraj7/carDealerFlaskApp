@@ -1,0 +1,11 @@
+{% extends 'layout.html' %} {% block title %} SignIn {% endblock %} {% block content %}
+<div class="container login-msg">
+    {% if flag=='edit' %}
+    <h4 class=> Edit the details Here </h4>
+    {% else %}
+    <h4> Enter the Details here </h4>
+    {% endif %}
+    <hr><br>
+    <div> {{ wtf.quick_form(form) }} </div>
+</div>
+{% endblock content %}
